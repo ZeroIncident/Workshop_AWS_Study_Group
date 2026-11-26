@@ -3,11 +3,12 @@ frontend:
   phases:
     preBuild:
       commands:
-        - curl -sL https://github.com/gohugoio/hugo/releases/download/v0.134.3/hugo_extended_0.134.3_linux-amd64.tar.gz | tar -xz -C /usr/local/bin
-        - hugo version
+        - mkdir -p /tmp/hugo
+        - curl -sL https://github.com/gohugoio/hugo/releases/download/v0.134.3/hugo_extended_0.134.3_linux-amd64.tar.gz | tar -xz -C /tmp/hugo
+        - /tmp/hugo/hugo version
     build:
       commands:
-        - hugo --minify
+        - /tmp/hugo/hugo --minify
   artifacts:
     baseDirectory: public
     files:
