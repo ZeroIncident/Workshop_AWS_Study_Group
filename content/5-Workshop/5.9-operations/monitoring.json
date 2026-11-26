@@ -1,0 +1,84 @@
+{
+  "capturedAt": "2026-11-03T09:46:42.313748+00:00",
+  "stackStatus": "UPDATE_COMPLETE",
+  "apiAccessLogEnabled": true,
+  "logGroup": "/aurel/aurel-observability/http-api",
+  "retentionDays": 14,
+  "dashboard": "aurel-observability",
+  "notifications": "No SNS subscription or alarm notification actions configured.",
+  "alarmTest": "SIMULATED SetAlarmState only; not a real outage or threshold test.",
+  "alarms": [
+    {
+      "name": "aurel-observability-Api5xx",
+      "metric": "5xx",
+      "namespace": "AWS/ApiGateway",
+      "threshold": 1.0,
+      "period": 300,
+      "evaluationPeriods": 1,
+      "actions": []
+    },
+    {
+      "name": "aurel-observability-ApiLatency",
+      "metric": "Latency",
+      "namespace": "AWS/ApiGateway",
+      "threshold": 2000.0,
+      "period": 300,
+      "evaluationPeriods": 2,
+      "actions": []
+    },
+    {
+      "name": "aurel-observability-LambdaErrors",
+      "metric": "Errors",
+      "namespace": "AWS/Lambda",
+      "threshold": 1.0,
+      "period": 300,
+      "evaluationPeriods": 1,
+      "actions": []
+    },
+    {
+      "name": "aurel-observability-LambdaThrottles",
+      "metric": "Throttles",
+      "namespace": "AWS/Lambda",
+      "threshold": 1.0,
+      "period": 300,
+      "evaluationPeriods": 1,
+      "actions": []
+    }
+  ],
+  "simulationHistory": [
+    {
+      "timestamp": "2026-11-03T16:46:40.188000+07:00",
+      "type": "StateUpdate",
+      "summary": "Alarm updated from OK to ALARM"
+    },
+    {
+      "timestamp": "2026-11-03T16:35:24.027000+07:00",
+      "type": "StateUpdate",
+      "summary": "Alarm updated from INSUFFICIENT_DATA to OK"
+    }
+  ],
+  "actualAccessLogVerified": true,
+  "accessLogSample": [
+    {
+      "routeKey": "GET /menu",
+      "status": 200,
+      "responseLength": 49587,
+      "integrationLatencyMs": 1259
+    },
+    {
+      "routeKey": "ANY /admin/{proxy+}",
+      "status": 401
+    },
+    {
+      "routeKey": "POST /reservations",
+      "status": 400,
+      "integrationLatencyMs": 35
+    },
+    {
+      "routeKey": "POST /reservations",
+      "status": 400,
+      "integrationLatencyMs": 15
+    }
+  ],
+  "logEvidenceMethod": "AWS Logs GetLogEvents on the actual API stream; samples omit request IDs/timestamps."
+}

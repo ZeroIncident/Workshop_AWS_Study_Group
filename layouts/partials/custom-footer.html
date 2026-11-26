@@ -1,0 +1,59 @@
+<script>
+  (function (i, s, o, g, r, a, m) {
+    i["GoogleAnalyticsObject"] = r;
+    ((i[r] =
+      i[r] ||
+      function () {
+        (i[r].q = i[r].q || []).push(arguments);
+      }),
+      (i[r].l = 1 * new Date()));
+    ((a = s.createElement(o)), (m = s.getElementsByTagName(o)[0]));
+    a.async = 1;
+    a.src = g;
+    m.parentNode.insertBefore(a, m);
+  })(
+    window,
+    document,
+    "script",
+    "https://www.google-analytics.com/analytics.js",
+    "ga",
+  );
+
+  ga("create", "UA-158079754-2", "auto");
+  ga("send", "pageview");
+</script>
+
+<script>
+  (() => {
+    if (!location.pathname.includes("/1-worklog/")) return;
+    const lessons = [
+      ["Creating Your First AWS Account","000001"],["Managing Costs","000007"],["Getting Help with AWS Support","000009"],["Access Management","000002"],["Networking Essentials","000003"],["Compute Essentials","000004"],["Instance Profiling","000048"],["Cloud Development","000049"],["Static Website","000057"],["Database Essentials","000005"],["Simplified Computing","000045"],["Lightsail Containers","000046"],
+      ["Scaling Applications","000006"],["Monitoring with Amazon CloudWatch","000008"],["Hybrid DNS","000010"],["Command Line Operations","000011"],["NoSQL Database","000060"],["In-Memory Caching","000061"],["Networking on AWS Workshop","000092"],["Content Delivery","000094"],["Edge Computing","000130"],["Windows Workloads","000093"],["Directory Services","000095"],["Highly Available Web","000101"],
+      ["VM Migration","000014"],["Database Migration","000043"],["Disaster Recovery","000100"],["Serverless Automation","000022"],["Advanced Monitoring","000029"],["CloudWatch Advanced","000036"],["Resource Organization","000027"],["Access Control with IAM and Resource Tags","000028"],["Systems Management","000031"],["Remote Server Access","000058"],["Infrastructure as Code with AWS CloudFormation","000037"],["Cloud Development Kit Essentials","000038"],
+      ["AWS CDK Advanced","000076"],["Infrastructure as Code Workshop","000102"],["Right-Sizing","000032"],["Network Monitoring","000074"],["Billing Console","000075"],["Managing Quotas","000063"],["Cost and Usage","000064"],["Snapshot Automation","000088"],["Anomaly Detection","000089"],["AWS Toolkit","000087"],["Identity Federation","000012"],["Permission Management","000030"],
+      ["Access Control with IAM Policies","000044"],["Security Compliance","000018"],["Private Access to S3","000111"],["Application Protection","000026"],["Encryption with AWS","000033"],["Data Protection with Amazon Macie","000090"],["Credentials Management","000096"],["Security Governance","000097"],["Threat Detection","000098"],["Systems Patching","000099"],["Cross-Domain","000141"],["S3 Security","000069"],
+      ["Data Protection with AWS Backup","000013"],["VPC Peering","000019"],["Transit Gateway","000020"],["Messaging Systems","000077"],["EBS Multi-Attach","100000"],["Windows Server Failover","100002"],["SQL Server High Availability on AWS (2019)","100003"],["SQL Server High Availability on AWS (2022)","100004"],["Containerization with Docker","000015"],["Container Orchestration","000016"],["Infrastructure as Code for ECS","000118"],
+      ["CI/CD Pipeline","000017"],["Automated Deployments","000023"],["DevOps with AWS","000152"],["Hybrid Storage","000024"],["Windows File Storage","000025"],["Building Advanced","000039"],["Workflow Orchestration","000047"],["Storage Performance","000068"],["Cost Savings","000042"],["Cost Visualization","000034"],["Cost Data Analysis","000040"],["Monolith to Microservices","000050"],
+      ["CI/CD for Application Release","000051"],["Building Microservices","000052"],["Data and Workflow","000053"],["Event-Driven","000054"],["Single Page","000055"],["AWS AI Services","000056"],["Serverless Backend","000078"],["Frontend Development","000079"],["Deployment Automation","000080"],["User Authentication","000081"],["Custom Domains","000082"],["Event Processing","000083"],
+      ["CI/CD for Serverless","000084"],["Monitoring Serverless","000085"],["Building GraphQL","000086"],["Building Serverless CRUD","000133"],["Serverless Storage","000134"],["Frontend Integration","000135"],["Document Management System Deployment","000136"],["Content Delivery Setup","000137"],["Adding Search","000138"],["DevOps for Document","000139"],["Distributed Tracing","000140"],["Building Serverless APIs","000066"],
+      ["Serverless Chat","000117"],["Deploying Node.js","000112"],["CI/CD with Elastic","000113"],["WordPress Architecture","000021"],["Running WordPress","000091"],["Amazon ECS and AWS Fargate","000067"],["Getting Started with Amazon EKS","000126"],["EKS Blueprints","000065"],["CI/CD for EKS","000062"],["Red Hat OpenShift","000071"],["Data Lake Fundamentals","000035"],["Building a Data Lake","000070"],
+      ["Data Analytics Services","000072"],["Business Intelligence","000073"],["Data Engineering","000105"],["Serverless Analytics","000106"],["Advanced PostgreSQL","000115"],["Machine Learning with Amazon SageMaker","000200"],["SageMaker Immersion","000200"]
+    ];
+    document.querySelectorAll("#body-inner table tbody tr").forEach((row) => {
+      const cells = row.querySelectorAll("td");
+      if (cells.length < 5 || !/cloud journey/i.test(cells[4].textContent)) return;
+      const task = cells[1].textContent;
+      const matches = lessons.filter(([label]) => task.includes(label));
+      cells[4].replaceChildren();
+      (matches.length ? matches : [["Cloud Journey","https://cloudjourney.awsfcaj.com/"]]).forEach(([label, id], index) => {
+        const link = document.createElement("a");
+        link.textContent = label;
+        link.href = id.startsWith("http") ? id : "https://" + id + ".awsfcaj.com/";
+        link.target = "_blank";
+        link.rel = "noopener";
+        cells[4].append(link);
+        if (index < matches.length - 1) cells[4].append(document.createElement("br"));
+      });
+    });
+  })();
+</script>
