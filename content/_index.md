@@ -20,7 +20,7 @@ chapter: false
 
 &emsp; **Major:** Artificial Intelligence
 
-&emsp; **Class:** AWS082025
+&emsp; **Class:** SE203879
 
 &emsp; **Internship Company:** Amazon Web Services Viet Nam Company Limited
 
